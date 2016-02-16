@@ -23,17 +23,23 @@ class Mapper(dict):
         raise KeyError("{} out of range".format(mark))
 
 
-def main():
+def main(mark):
 
     grades_dist = {(0, 49): "F",
                    (50, 59): "D",
                    (60, 69): "C",
                    (70, 79): "B",
                    (80, 89): "A",
-                   (90, 100): "S"}
+                   (90, 101): "S"}
 
     mapper = Mapper(grades_dist)
-    print mapper[80]
+    print mapper[mark]
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description='Maps all the input " + \
+                                     "values to grades')
+    parser.add_argument('mark',
+                        type=int,
+                        help='Integer value in the range 0,100')
+    args = parser.parse_args()
+    main(args.mark)
