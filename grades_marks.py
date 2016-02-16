@@ -33,7 +33,8 @@ def main(mark):
                    (90, 101): "S"}
 
     mapper = Mapper(grades_dist)
-    print mapper[mark]
+    print "Grade for the mark {mark} : {grade}".format(mark=mark,
+                                                       grade=mapper[mark])
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Maps all the input " + \
